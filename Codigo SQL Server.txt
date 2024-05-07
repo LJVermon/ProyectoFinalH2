@@ -1,0 +1,51 @@
+Create database Concesionario
+use Concesionario
+CREATE TABLE Clientes (
+    ClienteID INT PRIMARY KEY IDENTITY(1,1),
+    Nombre NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    Contraseña NVARCHAR(50) NOT NULL,
+    Rol NVARCHAR(50) DEFAULT 'Usuario',
+    Sancion bit not null default 0,
+   
+);
+
+CREATE TABLE Administrador(
+    AdmiID int primary key IDENTITY(1,1),
+    Nombre Nvarchar(100) not null,
+    Email NVARCHAR(100) NOT NULL,
+    Contraseña NVARCHAR(50) NOT NULL,
+
+);
+
+
+CREATE TABLE Vehiculos (
+    Placa INT PRIMARY KEY,
+    Modelo NVARCHAR(50) NOT NULL,
+    Tipo NVARCHAR(50) NOT NULL, -- .
+    Disponible BIT NOT NULL DEFAULT 1, -- 1 indica que esta disponible, 0 indica que no está disponible
+    imagen VARBINARY(MAX)
+    
+    
+   
+);
+
+
+CREATE TABLE Reservas (
+    ReservaID INT PRIMARY KEY IDENTITY(1,1),
+    ClienteID INT NOT NULL,
+    Placa INT NOT NULL,
+    FechaInicio DATETIME NOT NULL,
+    FechaFin DATETIME NOT NULL,
+    FK_Cliente_Reserva int FOREIGN KEY (ClienteID) REFERENCES Clientes(ClienteID),
+    FK_Vehiculo_Reserva int FOREIGN KEY (Placa) REFERENCES Vehiculos(Placa)
+);
+
+
+CREATE TABLE Rentas (
+    RentaID INT PRIMARY KEY IDENTITY(1,1),
+    ReservaID INT NOT NULL,
+    FechaInicio DATETIME NOT NULL,
+    FechaFin DATETIME NOT NULL,
+    Observaciones NVARCHAR(MAX), -- El Max es para que no poner un limite de caracteres
+    FK_Reserva_Renta int FOREIGN KEY (ReservaID) REFERENCES Reservas(ReservaID)
