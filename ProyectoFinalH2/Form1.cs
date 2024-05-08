@@ -16,12 +16,14 @@ namespace ProyectoFinalH2
         {
             InitializeComponent();
         }
-
+        public string server;
+        public string basedata;
         private void Form1_Load(object sender, EventArgs e)
         {
+            Instalacion F2Instal = new Instalacion();
+            AddOwnedForm(F2Instal);
+            F2Instal.ShowDialog();
             btnSingUp.Visible = false;
-
-
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -39,6 +41,11 @@ namespace ProyectoFinalH2
         {
             F2Usuer F2U = new F2Usuer();
             F2U.ShowDialog();
+        }
+
+        private void btnIstl_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
