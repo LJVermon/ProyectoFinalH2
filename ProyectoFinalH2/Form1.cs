@@ -17,20 +17,18 @@ namespace ProyectoFinalH2
         {
             InitializeComponent();
         }
-        public string server = "B13-204-22892";
-        public string database = "RentalCars";
+        string server = "B13-204-22892";
+        string database = "RentalCars";
+        string UsertTest = "testUser";
         
         SqlComands conexionBa = new SqlComands();
- 
-        
+        SqlComands sqlComands2 = new SqlComands();
+
         private void Form1_Load(object sender, EventArgs e)
         {
+
             
-            Instalacion F2Instal = new Instalacion();
-            AddOwnedForm(F2Instal);
-            F2Instal.ShowDialog();
-            SqlComands sqlComands2 = new SqlComands();
-            sqlComands2.funData(server, database, dataGridView1);
+            sqlComands2.funConexion(server,database);
             btnSingUp.Visible = false;
 
         }
@@ -49,6 +47,9 @@ namespace ProyectoFinalH2
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+
+            sqlComands2.funLoginTest(server, database, UsertTest, txtName.Text, txtPassw.Text);
+
             F2Usuer F2U = new F2Usuer();
             F2U.ShowDialog();
         }
