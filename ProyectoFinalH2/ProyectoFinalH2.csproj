@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlComands.cs" />
     <EmbeddedResource Include="F2Usuer.resx">
       <DependentUpon>F2Usuer.cs</DependentUpon>
     </EmbeddedResource>

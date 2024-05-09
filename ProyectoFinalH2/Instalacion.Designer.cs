@@ -36,6 +36,7 @@
             this.tbxBasedata = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAccept = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,7 +99,7 @@
             // 
             this.btnAccept.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAccept.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAccept.Location = new System.Drawing.Point(91, 245);
+            this.btnAccept.Location = new System.Drawing.Point(157, 243);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(126, 33);
             this.btnAccept.TabIndex = 8;
@@ -106,11 +107,24 @@
             this.btnAccept.UseVisualStyleBackColor = false;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(25, 243);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 33);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Instalacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 288);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
@@ -136,5 +150,6 @@
         private System.Windows.Forms.TextBox tbxBasedata;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Button button1;
     }
 }

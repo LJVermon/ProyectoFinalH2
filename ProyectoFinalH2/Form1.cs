@@ -17,14 +17,22 @@ namespace ProyectoFinalH2
         {
             InitializeComponent();
         }
-        public string server;
-        public string basedata;
+        public string server = "B13-204-22892";
+        public string database = "RentalCars";
+        
+        SqlComands conexionBa = new SqlComands();
+ 
+        
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             Instalacion F2Instal = new Instalacion();
             AddOwnedForm(F2Instal);
             F2Instal.ShowDialog();
+            SqlComands sqlComands2 = new SqlComands();
+            sqlComands2.funData(server, database, dataGridView1);
             btnSingUp.Visible = false;
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -36,6 +44,7 @@ namespace ProyectoFinalH2
         {
             
             MessageBox.Show($"new registered user, welcome to rental cars {txtName.Text} your ID is: {25642}.", "Hello!");
+            
         }
 
         private void btnAccept_Click(object sender, EventArgs e)

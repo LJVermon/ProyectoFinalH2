@@ -24,14 +24,19 @@ namespace ProyectoFinalH2
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            Form1 F1 = Owner as Form1;
-            if (tbxBasedata.Text != "" & tbxServer.Text != "") 
-            {
-                F1.server = tbxServer.Text;
-                F1.basedata = tbxBasedata.Text;
-                Close();
-            }
-            else { MessageBox.Show("Complet the camps", "Ups!"); F1.Close(); }
+            //Form1 F1 = Owner as Form1;
+            //if (tbxBasedata.Text != "" & tbxServer.Text != "") 
+            //{
+            //    F1.server = tbxServer.Text;
+            //    F1.database = tbxBasedata.Text;
+            //    Close();
+            //}
+            //else { MessageBox.Show("Complet the camps", "Ups!"); F1.Close(); }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
