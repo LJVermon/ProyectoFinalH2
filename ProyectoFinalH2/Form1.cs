@@ -17,20 +17,17 @@ namespace ProyectoFinalH2
         {
             InitializeComponent();
         }
-        string server = "B13-204-22892";
+        string server = "DESKTOP-B9S4NRM";
         string database = "RentalCars";
-        string UsertTest = "testUser";
+        string UsertTest = "tClientes";
         
         SqlComands conexionBa = new SqlComands();
         SqlComands sqlComands2 = new SqlComands();
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            
             sqlComands2.funConexion(server,database);
             btnSingUp.Visible = false;
-
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -40,22 +37,29 @@ namespace ProyectoFinalH2
 
         private void btnSingUp_Click(object sender, EventArgs e)
         {
-            
-            MessageBox.Show($"new registered user, welcome to rental cars {txtName.Text} your ID is: {25642}.", "Hello!");
-            
+            if (txtName.Text != "" & txtPassw.Text != "") 
+            {
+                sqlComands2.funSingUp(server, database, UsertTest, txtName.Text, txtPassw.Text);
+                txtName.Clear();
+                txtPassw.Clear();
+            }
+            else { MessageBox.Show("Complete the fields", "Ups!."); }
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-
-            sqlComands2.funLoginTest(server, database, UsertTest, txtName.Text, txtPassw.Text);
-
-            F2Usuer F2U = new F2Usuer();
-            F2U.ShowDialog();
-        }
-
-        private void btnIstl_Click(object sender, EventArgs e)
-        {
+            int Bandera = sqlComands2.funLoginTest(server, database, UsertTest, txtName.Text, txtPassw.Text);
+            if (Bandera == 1)
+            {
+                txtName.Clear();
+                txtPassw.Clear();
+                F2Usuer F2U = new F2Usuer();
+                F2U.ShowDialog();
+            }
+            else 
+            {
+                MessageBox.Show("Incorrect client or password, try again.", "Ups!");
+            }
             
         }
     }
