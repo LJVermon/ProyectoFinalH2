@@ -17,8 +17,8 @@ namespace ProyectoFinalH2
         {
             InitializeComponent();
         }
-        string server = "DESKTOP-B9S4NRM";
-        string database = "RentalCars";
+        public string server = "DESKTOP-B9S4NRM";
+        public string database = "RentalCars";
         string UsertTest = "tClientes";
         
         SqlComands conexionBa = new SqlComands();
