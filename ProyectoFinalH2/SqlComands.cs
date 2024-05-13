@@ -68,7 +68,7 @@ namespace ProyectoFinalH2
             using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
             {
                 con.Open();
-                string QuerYCars = "select * from tCars";
+                string QuerYCars = "select	* from tCars";
                 SqlDataAdapter tCars = new SqlDataAdapter(QuerYCars,con);
                 DataTable dt = new DataTable();
                 tCars.Fill(dt);
@@ -77,5 +77,6 @@ namespace ProyectoFinalH2
             }
         }
 
+            
     }
 }

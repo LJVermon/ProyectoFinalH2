@@ -1,0 +1,38 @@
+
+CREATE TABLE tCars
+(
+	Placa varchar(6) primary key not null,
+	Modelo varchar(50) not null,
+	Tipo varchar(50) not null,
+	Disponible bit not null,
+	Color1 varchar(50) not null,
+	Cantidad_C1 varchar(50) not null,
+	Color2 varchar(50) not null,
+	Cantidad_C2 varchar(50) not null,
+	N_Puertas int not null,
+	Asientos int not null,
+	Precio_Dia int not null,
+	Imagen image null
+);
+
+drop table tCars
+
+-- Ejemplo 1
+INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
+VALUES ('ABC123', 'Toyota Corolla', 'Sedán', 1, 'Rojo', '5', 'Azul', '3', 4, 5, 50);
+
+-- Ejemplo 2
+INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
+VALUES ('DEF456', 'Honda Civic', 'Sedán', 0, 'Blanco', '3', 'Negro', '2', 4, 5, 45);
+
+-- Ejemplo 3
+INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
+VALUES ('GHI789', 'Ford Mustang', 'Coupé', 1, 'Amarillo', '2', 'Naranja', '1', 2, 4, 80);
+
+-- Ejemplo 4
+INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
+VALUES ('JKL012', 'Chevrolet Camaro', 'Coupé', 1, 'Negro', '4', 'Gris', '3', 2, 4, 75);
+
+-- Ejemplo 5
+INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
+VALUES ('MNO345', 'Nissan Versa', 'Compacto', 0, 'Azul', '1', 'Gris', '2', 4, 5, 40);
