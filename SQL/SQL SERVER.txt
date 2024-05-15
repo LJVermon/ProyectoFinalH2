@@ -1,3 +1,14 @@
+create table tArriendoReservas
+(
+	ID_Cliente int not null,
+	ID_Carro varchar(6) not null,
+	Modo varchar(50) not null,
+	FechaIn date not null,
+	FehcaFn date not null,
+
+	foreign key (ID_Cliente ) references tClientes(ID),
+	foreign key (ID_Carro ) references tCars(Placa),
+);
 
 CREATE TABLE tCars
 (
@@ -5,50 +16,42 @@ CREATE TABLE tCars
 	Modelo varchar(50) not null,
 	Tipo varchar(50) not null,
 	Disponible bit not null,
-	Color1 varchar(50) not null,
-	Cantidad_C1 varchar(50) not null,
-	Color2 varchar(50) not null,
-	Cantidad_C2 varchar(50) not null,
+	Color varchar(50) not null,
 	N_Puertas int not null,
 	Asientos int not null,
 	Precio_Dia int not null,
 	Imagen image null
 );
 
-drop table tCars
 
--- Ejemplo 1
-INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
-VALUES ('ABC123', 'Toyota Corolla', 'Sedán', 1, 'Rojo', '5', 'Azul', '3', 4, 5, 50);
+-- Insertar datos de ejemplo en la tabla tCars
+INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color, N_Puertas, Asientos, Precio_Dia, Imagen)
+VALUES 
+    ('ABC123', 'Toyota Corolla', 'Sedan', 1, 'Rojo', 4, 5, 50, null),
+    ('DEF456', 'Honda Civic', 'Sedan', 1, 'Azul', 4, 5, 45, null),
+    ('GHI789', 'Ford Mustang', 'Deportivo', 1, 'Negro', 2, 2, 100, null),
+    ('JKL012', 'Volkswagen Golf', 'Hatchback', 1, 'Blanco', 4, 5, 40, null),
+    ('MNO345', 'Chevrolet Camaro', 'Deportivo', 1, 'Amarillo', 2, 2, 120, null),
+    ('PQR678', 'Nissan Sentra', 'Sedan', 1, 'Gris', 4, 5, 48, null),
+    ('STU901', 'BMW Serie 3', 'Sedan', 1, 'Plateado', 4, 5, 80, null),
+    ('VWX234', 'Audi A4', 'Sedan', 1, 'Negro', 4, 5, 85, null);
+    ('YZA567', 'Hyundai Elantra', 'Sedan', 1, 'Gris', 4, 5, 47, null),
+    ('BCD890', 'Kia Forte', 'Sedan', 1, 'Blanco', 4, 5, 46, null),
+    ('EFG123', 'Mazda 3', 'Sedan', 1, 'Rojo', 4, 5, 49, null),
+    ('HIJ456', 'Subaru Impreza', 'Hatchback', 1, 'Azul', 4, 5, 42, null),
+    ('KLM789', 'Mercedes-Benz Clase C', 'Sedan', 1, 'Negro', 4, 5, 90, null),
+    ('NOP012', 'Volvo S60', 'Sedan', 1, 'Plateado', 4, 5, 82, null),
+    ('QRS345', 'Lexus IS', 'Sedan', 1, 'Gris Oscuro', 4, 5, 88, null);
 
--- Ejemplo 2
-INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
-VALUES ('DEF456', 'Honda Civic', 'Sedán', 0, 'Blanco', '3', 'Negro', '2', 4, 5, 45);
-
--- Ejemplo 3
-INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
-VALUES ('GHI789', 'Ford Mustang', 'Coupé', 1, 'Amarillo', '2', 'Naranja', '1', 2, 4, 80);
-
--- Ejemplo 4
-INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
-VALUES ('JKL012', 'Chevrolet Camaro', 'Coupé', 1, 'Negro', '4', 'Gris', '3', 2, 4, 75);
-
--- Ejemplo 5
-INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
-VALUES ('MNO345', 'Nissan Versa', 'Compacto', 0, 'Azul', '1', 'Gris', '2', 4, 5, 40);
-
-
-create table tArriendoReservas
-(
-	ID_Cliente int not null,
-	ID_Carro varchar(6) not null,
-	FechaInArr date not null,
-	FechaFnArr date not null,
-	FechaInRese date not null,
-	FehcaFnRese date not null,
-
-	foreign key (ID_Cliente ) references tClientes(ID),
-	foreign key (ID_Carro ) references tCars(Placa),
-);
 
 select * from tArriendoReservas
+
+insert into tArriendoReservas ()
+
+drop table tArriendoReservas
+
+
+select * from tArriendoReservas
+
+select * from tClientes WHERE Contraseña = 1234 and Nombre = 'Testing' 
+

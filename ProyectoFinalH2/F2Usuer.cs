@@ -78,7 +78,12 @@ namespace ProyectoFinalH2
             }
             else
             {
-
+                int IDC = Convert.ToInt32(lblUserID.Text);
+                string Placa = dataGridCars.SelectedCells[0].Value.ToString();
+                string Mode = radiBtnRent.Checked || radiBtnReserver.Checked ? "Rent" : "Reserve";
+                DateTime fechaInicio = dateTStar.Value;
+                DateTime fechaFin = dateTEnd.Value;
+                comSQL.funTArriReser(F1.server, F1.database, IDC, Placa,Mode, fechaInicio, fechaFin);
             }
         }
     }

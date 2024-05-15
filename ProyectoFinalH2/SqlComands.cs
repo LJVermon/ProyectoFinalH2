@@ -93,6 +93,23 @@ namespace ProyectoFinalH2
             return IDClient;
         }
 
-            
+        public void funTArriReser(string server, string database, int IDCliente, string IDCarro, string Modo, DateTime FechaIn, DateTime FechaFin)
+        {
+            using (SqlConnection con = new SqlConnection($"server={server}; database={database}; integrated security=true;"))
+            {
+                con.Open();
+                string query = "INSERT INTO tArriendoReservas (ID_Cliente, ID_Carro, Modo, FechaIn, FehcaFn) VALUES (@IDCliente, @IDCarro, @Modo, @FechaIn, @FechaFin)";
+                SqlCommand sqlCommand = new SqlCommand(query, con);
+
+                sqlCommand.Parameters.AddWithValue("@IDCliente", IDCliente);
+                sqlCommand.Parameters.AddWithValue("@IDCarro", IDCarro);
+                sqlCommand.Parameters.AddWithValue("@Modo", Modo);
+                sqlCommand.Parameters.AddWithValue("@FechaIn", FechaIn);
+                sqlCommand.Parameters.AddWithValue("@FechaFin", FechaFin);
+
+                sqlCommand.ExecuteNonQuery();
+                con.Close();
+            }
+        }
     }
 }
