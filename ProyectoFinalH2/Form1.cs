@@ -50,11 +50,11 @@ namespace ProyectoFinalH2
         private void btnAccept_Click(object sender, EventArgs e)
         {
             int Bandera = sqlComands2.funLoginTest(server, database, UsertTest, txtName.Text, txtPassw.Text);
+            F2Usuer F2 = new F2Usuer();
+            AddOwnedForm(F2);
+            F2.lblUserID.Text = $"{Convert.ToString(sqlComands2.funReturIDClient(server, database, UsertTest, txtName.Text, txtPassw.Text))}";
             if (Bandera == 1)
             {
-                F2Usuer F2 = new F2Usuer();
-                AddOwnedForm(F2);
-                F2.lblUserName.Text = this.txtName.Text;
                 txtName.Clear();
                 txtPassw.Clear();
                 F2.Show();
@@ -63,7 +63,6 @@ namespace ProyectoFinalH2
             {
                 MessageBox.Show("Incorrect client or password, try again.", "Ups!");
             }
-            
         }
     }
 }

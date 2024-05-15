@@ -36,3 +36,19 @@ VALUES ('JKL012', 'Chevrolet Camaro', 'Coupé', 1, 'Negro', '4', 'Gris', '3', 2,
 -- Ejemplo 5
 INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color1, Cantidad_C1, Color2, Cantidad_C2, N_Puertas, Asientos, Precio_Dia)
 VALUES ('MNO345', 'Nissan Versa', 'Compacto', 0, 'Azul', '1', 'Gris', '2', 4, 5, 40);
+
+
+create table tArriendoReservas
+(
+	ID_Cliente int not null,
+	ID_Carro varchar(6) not null,
+	FechaInArr date not null,
+	FechaFnArr date not null,
+	FechaInRese date not null,
+	FehcaFnRese date not null,
+
+	foreign key (ID_Cliente ) references tClientes(ID),
+	foreign key (ID_Carro ) references tCars(Placa),
+);
+
+select * from tArriendoReservas

@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 using System.Security.Policy;
+using System.Net.Sockets;
 
 namespace ProyectoFinalH2
 {
@@ -33,7 +34,7 @@ namespace ProyectoFinalH2
                 if (RC2.Read())
                 {
                     RC2.Close();
-                    string Query3 = $"select * from {tClientes} where Contraseña = '{entradaContra}'";
+                    string Query3 = $"select * from {tClientes} where Contraseña = '{entradaContra}' and Nombre = '{entradaNombe}'";
                     SqlCommand Coman3 = new SqlCommand(Query3, con);
                     SqlDataReader RC3 = Coman3.ExecuteReader();
                     if (RC3.Read())
@@ -75,6 +76,21 @@ namespace ProyectoFinalH2
                 table.DataSource = dt;
                 con.Close();
             }
+        }
+
+        public int funReturIDClient(string server, string database, string tClientes, string entradaNombe, string entradaContra)
+        {
+            int IDClient;
+            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            {
+                con.Open();
+                string Query = $"select ID from {tClientes} where Contraseña = '{entradaContra}' and Nombre = '{entradaNombe}' ";
+                SqlCommand Coman4 = new SqlCommand(Query, con);
+                object Result = Coman4.ExecuteScalar();
+                IDClient = Convert.ToInt32(Result);
+                con.Close();
+            }
+            return IDClient;
         }
 
             

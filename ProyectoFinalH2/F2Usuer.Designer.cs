@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F2Usuer));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAcceptRent = new System.Windows.Forms.Button();
@@ -51,14 +50,13 @@
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblNDoors = new System.Windows.Forms.Label();
             this.lblPlaces = new System.Windows.Forms.Label();
-            this.rdbC2 = new System.Windows.Forms.RadioButton();
-            this.rdbC1 = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridCars = new System.Windows.Forms.DataGridView();
-            this.lblUserName = new System.Windows.Forms.Label();
+            this.lblUserID = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -71,7 +69,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(423, 9);
+            this.label1.Location = new System.Drawing.Point(419, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 23);
             this.label1.TabIndex = 1;
@@ -81,44 +79,37 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(326, 29);
+            this.label2.Location = new System.Drawing.Point(326, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(246, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "What do you want to do today?";
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(799, 430);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 31);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Close";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 210);
+            this.pictureBox1.Location = new System.Drawing.Point(560, 141);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(369, 179);
+            this.pictureBox1.Size = new System.Drawing.Size(226, 162);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btnAcceptRent);
+            this.groupBox2.Controls.Add(this.lblInformation);
+            this.groupBox2.Controls.Add(this.lblUserID);
             this.groupBox2.Controls.Add(this.btnCancelRent);
             this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(627, 65);
+            this.groupBox2.Location = new System.Drawing.Point(12, 396);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(259, 310);
+            this.groupBox2.Size = new System.Drawing.Size(696, 197);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Management:";
@@ -127,7 +118,7 @@
             // 
             this.btnAcceptRent.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAcceptRent.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAcceptRent.Location = new System.Drawing.Point(129, 267);
+            this.btnAcceptRent.Location = new System.Drawing.Point(372, 159);
             this.btnAcceptRent.Name = "btnAcceptRent";
             this.btnAcceptRent.Size = new System.Drawing.Size(87, 31);
             this.btnAcceptRent.TabIndex = 10;
@@ -139,7 +130,7 @@
             // 
             this.btnCancelRent.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCancelRent.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancelRent.Location = new System.Drawing.Point(36, 267);
+            this.btnCancelRent.Location = new System.Drawing.Point(279, 159);
             this.btnCancelRent.Name = "btnCancelRent";
             this.btnCancelRent.Size = new System.Drawing.Size(87, 31);
             this.btnCancelRent.TabIndex = 7;
@@ -153,7 +144,7 @@
             this.groupBox4.Controls.Add(this.dateTStar);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Location = new System.Drawing.Point(6, 146);
+            this.groupBox4.Location = new System.Drawing.Point(236, 30);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(224, 114);
             this.groupBox4.TabIndex = 9;
@@ -203,9 +194,9 @@
             // 
             this.groupBox3.Controls.Add(this.radiBtnRent);
             this.groupBox3.Controls.Add(this.radiBtnReserver);
-            this.groupBox3.Location = new System.Drawing.Point(6, 40);
+            this.groupBox3.Location = new System.Drawing.Point(6, 30);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(224, 100);
+            this.groupBox3.Size = new System.Drawing.Size(224, 114);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Rent or reserver:";
@@ -213,7 +204,7 @@
             // radiBtnRent
             // 
             this.radiBtnRent.AutoSize = true;
-            this.radiBtnRent.Location = new System.Drawing.Point(42, 25);
+            this.radiBtnRent.Location = new System.Drawing.Point(42, 41);
             this.radiBtnRent.Name = "radiBtnRent";
             this.radiBtnRent.Size = new System.Drawing.Size(58, 22);
             this.radiBtnRent.TabIndex = 6;
@@ -224,7 +215,7 @@
             // radiBtnReserver
             // 
             this.radiBtnReserver.AutoSize = true;
-            this.radiBtnReserver.Location = new System.Drawing.Point(42, 54);
+            this.radiBtnReserver.Location = new System.Drawing.Point(42, 68);
             this.radiBtnReserver.Name = "radiBtnReserver";
             this.radiBtnReserver.Size = new System.Drawing.Size(89, 22);
             this.radiBtnReserver.TabIndex = 7;
@@ -234,16 +225,10 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Controls.Add(this.lblInformation);
-            this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.lblPrice);
             this.groupBox5.Controls.Add(this.lblNDoors);
             this.groupBox5.Controls.Add(this.lblPlaces);
-            this.groupBox5.Controls.Add(this.rdbC2);
-            this.groupBox5.Controls.Add(this.rdbC1);
             this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.dataGridCars);
@@ -251,7 +236,7 @@
             this.groupBox5.Font = new System.Drawing.Font("Arial", 12F);
             this.groupBox5.Location = new System.Drawing.Point(12, 65);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(609, 396);
+            this.groupBox5.Size = new System.Drawing.Size(792, 325);
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cars list:";
@@ -260,26 +245,26 @@
             // 
             this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(530, 365);
+            this.button1.Location = new System.Drawing.Point(615, 167);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(73, 24);
             this.button1.TabIndex = 8;
-            this.button1.Text = "Play";
+            this.button1.Text = "Pay";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // lblInformation
             // 
             this.lblInformation.BackColor = System.Drawing.Color.White;
-            this.lblInformation.Location = new System.Drawing.Point(381, 229);
+            this.lblInformation.Location = new System.Drawing.Point(466, 41);
             this.lblInformation.Name = "lblInformation";
-            this.lblInformation.Size = new System.Drawing.Size(222, 160);
+            this.lblInformation.Size = new System.Drawing.Size(222, 150);
             this.lblInformation.TabIndex = 20;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(381, 210);
+            this.label3.Location = new System.Drawing.Point(466, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(179, 19);
             this.label3.TabIndex = 19;
@@ -288,7 +273,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(487, 126);
+            this.lblPrice.Location = new System.Drawing.Point(666, 109);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(13, 18);
             this.lblPrice.TabIndex = 18;
@@ -297,7 +282,7 @@
             // lblNDoors
             // 
             this.lblNDoors.AutoSize = true;
-            this.lblNDoors.Location = new System.Drawing.Point(471, 58);
+            this.lblNDoors.Location = new System.Drawing.Point(650, 73);
             this.lblNDoors.Name = "lblNDoors";
             this.lblNDoors.Size = new System.Drawing.Size(13, 18);
             this.lblNDoors.TabIndex = 17;
@@ -306,59 +291,27 @@
             // lblPlaces
             // 
             this.lblPlaces.AutoSize = true;
-            this.lblPlaces.Location = new System.Drawing.Point(447, 24);
+            this.lblPlaces.Location = new System.Drawing.Point(626, 39);
             this.lblPlaces.Name = "lblPlaces";
             this.lblPlaces.Size = new System.Drawing.Size(13, 18);
             this.lblPlaces.TabIndex = 16;
             this.lblPlaces.Text = "-";
             // 
-            // rdbC2
-            // 
-            this.rdbC2.AutoSize = true;
-            this.rdbC2.Location = new System.Drawing.Point(530, 93);
-            this.rdbC2.Name = "rdbC2";
-            this.rdbC2.Size = new System.Drawing.Size(73, 22);
-            this.rdbC2.TabIndex = 14;
-            this.rdbC2.TabStop = true;
-            this.rdbC2.Text = "Color2";
-            this.rdbC2.UseVisualStyleBackColor = true;
-            // 
-            // rdbC1
-            // 
-            this.rdbC1.AutoSize = true;
-            this.rdbC1.Location = new System.Drawing.Point(447, 92);
-            this.rdbC1.Name = "rdbC1";
-            this.rdbC1.Size = new System.Drawing.Size(73, 22);
-            this.rdbC1.TabIndex = 13;
-            this.rdbC1.TabStop = true;
-            this.rdbC1.Text = "Color1";
-            this.rdbC1.UseVisualStyleBackColor = true;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(381, 126);
+            this.label9.Location = new System.Drawing.Point(560, 109);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 19);
             this.label9.TabIndex = 12;
             this.label9.Text = "Price for day:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(381, 92);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 19);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Colors:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(381, 58);
+            this.label5.Location = new System.Drawing.Point(560, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 19);
             this.label5.TabIndex = 9;
@@ -368,7 +321,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(381, 24);
+            this.label4.Location = new System.Drawing.Point(560, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 19);
             this.label4.TabIndex = 8;
@@ -381,25 +334,45 @@
             this.dataGridCars.Name = "dataGridCars";
             this.dataGridCars.ReadOnly = true;
             this.dataGridCars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridCars.Size = new System.Drawing.Size(369, 180);
+            this.dataGridCars.Size = new System.Drawing.Size(548, 294);
             this.dataGridCars.TabIndex = 0;
             this.dataGridCars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCars_CellClick);
             // 
-            // lblUserName
+            // lblUserID
             // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(630, 448);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(60, 13);
-            this.lblUserName.TabIndex = 8;
-            this.lblUserName.Text = "User Name";
+            this.lblUserID.AutoSize = true;
+            this.lblUserID.Location = new System.Drawing.Point(29, 173);
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(60, 18);
+            this.lblUserID.TabIndex = 8;
+            this.lblUserID.Text = "User ID";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
+            this.button2.Location = new System.Drawing.Point(714, 563);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 28);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Close";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 173);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(27, 18);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "ID:";
             // 
             // F2Usuer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 473);
-            this.Controls.Add(this.lblUserName);
+            this.ClientSize = new System.Drawing.Size(817, 599);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
@@ -410,6 +383,7 @@
             this.Load += new System.EventHandler(this.F2Usuer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -426,7 +400,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -442,17 +415,16 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dataGridCars;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton rdbC1;
-        private System.Windows.Forms.RadioButton rdbC2;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblNDoors;
         private System.Windows.Forms.Label lblPlaces;
         private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Label lblUserName;
+        public System.Windows.Forms.Label lblUserID;
+        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Label label6;
     }
 }
