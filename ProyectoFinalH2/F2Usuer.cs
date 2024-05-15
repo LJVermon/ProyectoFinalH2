@@ -73,5 +73,19 @@ namespace ProyectoFinalH2
             lblPlaces.Text = dataGridCars.SelectedCells[9].Value.ToString();
             lblPrice.Text = dataGridCars.SelectedCells[10].Value.ToString();
         }
+
+        private void btnAcceptRent_Click(object sender, EventArgs e)
+        {
+            if(dateTStar.Value < dateTEnd.Value)
+            {
+                dateTStar.Value = DateTime.Today;
+                dateTEnd.Value = DateTime.Today;
+                MessageBox.Show("You can't do that.", "Ups!.");
+            }
+            else
+            {
+
+            }
+        }
     }
 } 

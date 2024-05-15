@@ -45,19 +45,20 @@
             this.radiBtnRent = new System.Windows.Forms.RadioButton();
             this.radiBtnReserver = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dataGridCars = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblInformation = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblNDoors = new System.Windows.Forms.Label();
+            this.lblPlaces = new System.Windows.Forms.Label();
+            this.rdbC2 = new System.Windows.Forms.RadioButton();
+            this.rdbC1 = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.rdbC1 = new System.Windows.Forms.RadioButton();
-            this.rdbC2 = new System.Windows.Forms.RadioButton();
-            this.lblPlaces = new System.Windows.Forms.Label();
-            this.lblNDoors = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblInformation = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridCars = new System.Windows.Forms.DataGridView();
+            this.lblUserName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -69,20 +70,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(429, 9);
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(423, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 20);
+            this.label1.Size = new System.Drawing.Size(52, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Hello.";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(349, 29);
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(326, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 20);
+            this.label2.Size = new System.Drawing.Size(246, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "What do you want to do today?";
             // 
@@ -132,6 +133,7 @@
             this.btnAcceptRent.TabIndex = 10;
             this.btnAcceptRent.Text = "Accept";
             this.btnAcceptRent.UseVisualStyleBackColor = false;
+            this.btnAcceptRent.Click += new System.EventHandler(this.btnAcceptRent_Click);
             // 
             // btnCancelRent
             // 
@@ -254,16 +256,83 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cars list:";
             // 
-            // dataGridCars
+            // button1
             // 
-            this.dataGridCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCars.Location = new System.Drawing.Point(6, 24);
-            this.dataGridCars.Name = "dataGridCars";
-            this.dataGridCars.ReadOnly = true;
-            this.dataGridCars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridCars.Size = new System.Drawing.Size(369, 180);
-            this.dataGridCars.TabIndex = 0;
-            this.dataGridCars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCars_CellClick);
+            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(530, 365);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(73, 24);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Play";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // lblInformation
+            // 
+            this.lblInformation.BackColor = System.Drawing.Color.White;
+            this.lblInformation.Location = new System.Drawing.Point(381, 229);
+            this.lblInformation.Name = "lblInformation";
+            this.lblInformation.Size = new System.Drawing.Size(222, 160);
+            this.lblInformation.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(381, 210);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(179, 19);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Información adicional:";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(487, 126);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(13, 18);
+            this.lblPrice.TabIndex = 18;
+            this.lblPrice.Text = "-";
+            // 
+            // lblNDoors
+            // 
+            this.lblNDoors.AutoSize = true;
+            this.lblNDoors.Location = new System.Drawing.Point(471, 58);
+            this.lblNDoors.Name = "lblNDoors";
+            this.lblNDoors.Size = new System.Drawing.Size(13, 18);
+            this.lblNDoors.TabIndex = 17;
+            this.lblNDoors.Text = "-";
+            // 
+            // lblPlaces
+            // 
+            this.lblPlaces.AutoSize = true;
+            this.lblPlaces.Location = new System.Drawing.Point(447, 24);
+            this.lblPlaces.Name = "lblPlaces";
+            this.lblPlaces.Size = new System.Drawing.Size(13, 18);
+            this.lblPlaces.TabIndex = 16;
+            this.lblPlaces.Text = "-";
+            // 
+            // rdbC2
+            // 
+            this.rdbC2.AutoSize = true;
+            this.rdbC2.Location = new System.Drawing.Point(530, 93);
+            this.rdbC2.Name = "rdbC2";
+            this.rdbC2.Size = new System.Drawing.Size(73, 22);
+            this.rdbC2.TabIndex = 14;
+            this.rdbC2.TabStop = true;
+            this.rdbC2.Text = "Color2";
+            this.rdbC2.UseVisualStyleBackColor = true;
+            // 
+            // rdbC1
+            // 
+            this.rdbC1.AutoSize = true;
+            this.rdbC1.Location = new System.Drawing.Point(447, 92);
+            this.rdbC1.Name = "rdbC1";
+            this.rdbC1.Size = new System.Drawing.Size(73, 22);
+            this.rdbC1.TabIndex = 13;
+            this.rdbC1.TabStop = true;
+            this.rdbC1.Text = "Color1";
+            this.rdbC1.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -305,89 +374,32 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Places:";
             // 
-            // rdbC1
+            // dataGridCars
             // 
-            this.rdbC1.AutoSize = true;
-            this.rdbC1.Location = new System.Drawing.Point(447, 92);
-            this.rdbC1.Name = "rdbC1";
-            this.rdbC1.Size = new System.Drawing.Size(73, 22);
-            this.rdbC1.TabIndex = 13;
-            this.rdbC1.TabStop = true;
-            this.rdbC1.Text = "Color1";
-            this.rdbC1.UseVisualStyleBackColor = true;
+            this.dataGridCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCars.Location = new System.Drawing.Point(6, 24);
+            this.dataGridCars.Name = "dataGridCars";
+            this.dataGridCars.ReadOnly = true;
+            this.dataGridCars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridCars.Size = new System.Drawing.Size(369, 180);
+            this.dataGridCars.TabIndex = 0;
+            this.dataGridCars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCars_CellClick);
             // 
-            // rdbC2
+            // lblUserName
             // 
-            this.rdbC2.AutoSize = true;
-            this.rdbC2.Location = new System.Drawing.Point(530, 93);
-            this.rdbC2.Name = "rdbC2";
-            this.rdbC2.Size = new System.Drawing.Size(73, 22);
-            this.rdbC2.TabIndex = 14;
-            this.rdbC2.TabStop = true;
-            this.rdbC2.Text = "Color2";
-            this.rdbC2.UseVisualStyleBackColor = true;
-            // 
-            // lblPlaces
-            // 
-            this.lblPlaces.AutoSize = true;
-            this.lblPlaces.Location = new System.Drawing.Point(447, 24);
-            this.lblPlaces.Name = "lblPlaces";
-            this.lblPlaces.Size = new System.Drawing.Size(13, 18);
-            this.lblPlaces.TabIndex = 16;
-            this.lblPlaces.Text = "-";
-            // 
-            // lblNDoors
-            // 
-            this.lblNDoors.AutoSize = true;
-            this.lblNDoors.Location = new System.Drawing.Point(471, 58);
-            this.lblNDoors.Name = "lblNDoors";
-            this.lblNDoors.Size = new System.Drawing.Size(13, 18);
-            this.lblNDoors.TabIndex = 17;
-            this.lblNDoors.Text = "-";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(487, 126);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(13, 18);
-            this.lblPrice.TabIndex = 18;
-            this.lblPrice.Text = "-";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(381, 210);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 19);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Información adicional:";
-            // 
-            // lblInformation
-            // 
-            this.lblInformation.BackColor = System.Drawing.Color.White;
-            this.lblInformation.Location = new System.Drawing.Point(381, 229);
-            this.lblInformation.Name = "lblInformation";
-            this.lblInformation.Size = new System.Drawing.Size(222, 160);
-            this.lblInformation.TabIndex = 20;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(530, 365);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 24);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Play";
-            this.button1.UseVisualStyleBackColor = false;
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Location = new System.Drawing.Point(630, 448);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(60, 13);
+            this.lblUserName.TabIndex = 8;
+            this.lblUserName.Text = "User Name";
             // 
             // F2Usuer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 473);
+            this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
@@ -441,5 +453,6 @@
         private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label lblUserName;
     }
 }

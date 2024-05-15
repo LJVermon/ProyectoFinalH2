@@ -17,6 +17,7 @@ namespace ProyectoFinalH2
         {
             InitializeComponent();
         }
+        
         public string server = "DESKTOP-B9S4NRM";
         public string database = "RentalCars";
         string UsertTest = "tClientes";
@@ -51,10 +52,12 @@ namespace ProyectoFinalH2
             int Bandera = sqlComands2.funLoginTest(server, database, UsertTest, txtName.Text, txtPassw.Text);
             if (Bandera == 1)
             {
+                F2Usuer F2 = new F2Usuer();
+                AddOwnedForm(F2);
+                F2.lblUserName.Text = this.txtName.Text;
                 txtName.Clear();
                 txtPassw.Clear();
-                F2Usuer F2U = new F2Usuer();
-                F2U.ShowDialog();
+                F2.Show();
             }
             else 
             {
