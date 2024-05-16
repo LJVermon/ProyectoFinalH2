@@ -69,7 +69,7 @@ namespace ProyectoFinalH2
             using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
             {
                 con.Open();
-                string QuerYCars = "select	* from tCars";
+                string QuerYCars = "select	* from tCars where Disponible = 1";
                 SqlDataAdapter tCars = new SqlDataAdapter(QuerYCars,con);
                 DataTable dt = new DataTable();
                 tCars.Fill(dt);
@@ -111,5 +111,17 @@ namespace ProyectoFinalH2
                 con.Close();
             }
         }
+
+        public void funDispoCars(string server, string database, int value, string placaCar)
+        {
+            using (SqlConnection con = new SqlConnection($"server={server}; database={database}; integrated security=true;"))
+            {
+                con.Open();
+                string Query = $"update tCars set Disponible = {value} where Placa = '{placaCar}'";
+                SqlCommand sqlCarsDispo = new SqlCommand(Query, con);
+                sqlCarsDispo.ExecuteNonQuery();
+                con.Close();
+            }
+        }   
     }
 }

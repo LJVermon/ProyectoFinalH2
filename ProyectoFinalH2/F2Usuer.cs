@@ -80,11 +80,23 @@ namespace ProyectoFinalH2
             {
                 int IDC = Convert.ToInt32(lblUserID.Text);
                 string Placa = dataGridCars.SelectedCells[0].Value.ToString();
-                string Mode = radiBtnRent.Checked || radiBtnReserver.Checked ? "Rent" : "Reserve";
+                string Mode = "";
+                int Value = 1;
+                if (radiBtnRent.Checked) { Mode = "Rent"; Value = 0; } else if (radiBtnReserver.Checked) { Mode = "Reserve"; Value = 0; }
                 DateTime fechaInicio = dateTStar.Value;
                 DateTime fechaFin = dateTEnd.Value;
                 comSQL.funTArriReser(F1.server, F1.database, IDC, Placa,Mode, fechaInicio, fechaFin);
+                comSQL.funDispoCars(F1.server, F1.database,Value,Placa);
+                MessageBox.Show($"Has {Mode} el vehiculo con placa {Placa} desde {fechaInicio} hasta el {fechaFin} por un valor de ${lblPrice.Text} por dia.","Felicidades") ;
+                comSQL.funTableCars(F1.server, F1.database, dataGridCars);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fo = new OpenFileDialog();
+            DialogResult rs = fo.ShowDialog();
+            if (rs == DialogResult.OK) { pictureBox1.Image = Image.FromFile(fo.FileName); }
         }
     }
 } 

@@ -33,20 +33,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnAcceptRent = new System.Windows.Forms.Button();
+            this.lblInformation = new System.Windows.Forms.Label();
+            this.lblUserID = new System.Windows.Forms.Label();
             this.btnCancelRent = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dateTEnd = new System.Windows.Forms.DateTimePicker();
             this.dateTStar = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radiBtnRent = new System.Windows.Forms.RadioButton();
             this.radiBtnReserver = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lblInformation = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblNDoors = new System.Windows.Forms.Label();
             this.lblPlaces = new System.Windows.Forms.Label();
@@ -54,9 +56,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridCars = new System.Windows.Forms.DataGridView();
-            this.lblUserID = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -114,6 +115,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Management:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 173);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(27, 18);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "ID:";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(615, 167);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(73, 24);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Pay";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // btnAcceptRent
             // 
             this.btnAcceptRent.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -125,6 +146,23 @@
             this.btnAcceptRent.Text = "Accept";
             this.btnAcceptRent.UseVisualStyleBackColor = false;
             this.btnAcceptRent.Click += new System.EventHandler(this.btnAcceptRent_Click);
+            // 
+            // lblInformation
+            // 
+            this.lblInformation.BackColor = System.Drawing.Color.White;
+            this.lblInformation.Location = new System.Drawing.Point(466, 41);
+            this.lblInformation.Name = "lblInformation";
+            this.lblInformation.Size = new System.Drawing.Size(222, 150);
+            this.lblInformation.TabIndex = 20;
+            // 
+            // lblUserID
+            // 
+            this.lblUserID.AutoSize = true;
+            this.lblUserID.Location = new System.Drawing.Point(29, 173);
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(60, 18);
+            this.lblUserID.TabIndex = 8;
+            this.lblUserID.Text = "User ID";
             // 
             // btnCancelRent
             // 
@@ -190,6 +228,16 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Start date:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(466, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(179, 19);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Información adicional:";
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.radiBtnRent);
@@ -225,6 +273,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.button3);
             this.groupBox5.Controls.Add(this.lblPrice);
             this.groupBox5.Controls.Add(this.lblNDoors);
             this.groupBox5.Controls.Add(this.lblPlaces);
@@ -240,35 +289,6 @@
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cars list:";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(615, 167);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 24);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Pay";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // lblInformation
-            // 
-            this.lblInformation.BackColor = System.Drawing.Color.White;
-            this.lblInformation.Location = new System.Drawing.Point(466, 41);
-            this.lblInformation.Name = "lblInformation";
-            this.lblInformation.Size = new System.Drawing.Size(222, 150);
-            this.lblInformation.TabIndex = 20;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(466, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 19);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Información adicional:";
             // 
             // lblPrice
             // 
@@ -338,15 +358,6 @@
             this.dataGridCars.TabIndex = 0;
             this.dataGridCars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCars_CellClick);
             // 
-            // lblUserID
-            // 
-            this.lblUserID.AutoSize = true;
-            this.lblUserID.Location = new System.Drawing.Point(29, 173);
-            this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(60, 18);
-            this.lblUserID.TabIndex = 8;
-            this.lblUserID.Text = "User ID";
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -359,14 +370,15 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label6
+            // button3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 173);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 18);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "ID:";
+            this.button3.Location = new System.Drawing.Point(702, 64);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 39);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // F2Usuer
             // 
@@ -426,5 +438,6 @@
         public System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button3;
     }
 }
