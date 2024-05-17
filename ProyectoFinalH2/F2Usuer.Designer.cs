@@ -34,7 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPayPenality = new System.Windows.Forms.Button();
             this.btnAcceptRent = new System.Windows.Forms.Button();
             this.lblInformation = new System.Windows.Forms.Label();
             this.lblUserID = new System.Windows.Forms.Label();
@@ -49,6 +49,7 @@
             this.radiBtnRent = new System.Windows.Forms.RadioButton();
             this.radiBtnReserver = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblNDoors = new System.Windows.Forms.Label();
             this.lblPlaces = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridCars = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -99,7 +99,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnPayPenality);
             this.groupBox2.Controls.Add(this.btnAcceptRent);
             this.groupBox2.Controls.Add(this.lblInformation);
             this.groupBox2.Controls.Add(this.lblUserID);
@@ -124,16 +124,17 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "ID:";
             // 
-            // button1
+            // btnPayPenality
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(615, 167);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 24);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Pay";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnPayPenality.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnPayPenality.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayPenality.Location = new System.Drawing.Point(615, 167);
+            this.btnPayPenality.Name = "btnPayPenality";
+            this.btnPayPenality.Size = new System.Drawing.Size(73, 24);
+            this.btnPayPenality.TabIndex = 8;
+            this.btnPayPenality.Text = "Pay";
+            this.btnPayPenality.UseVisualStyleBackColor = false;
+            this.btnPayPenality.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAcceptRent
             // 
@@ -273,7 +274,6 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button3);
             this.groupBox5.Controls.Add(this.lblPrice);
             this.groupBox5.Controls.Add(this.lblNDoors);
             this.groupBox5.Controls.Add(this.lblPlaces);
@@ -289,6 +289,16 @@
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cars list:";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(723, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 39);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // lblPrice
             // 
@@ -370,21 +380,12 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(702, 64);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 39);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // F2Usuer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 599);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
@@ -434,7 +435,7 @@
         private System.Windows.Forms.Label lblPlaces;
         private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPayPenality;
         public System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.Label label6;

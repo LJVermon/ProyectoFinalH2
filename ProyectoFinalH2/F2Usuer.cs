@@ -18,15 +18,30 @@ namespace ProyectoFinalH2
         }
         SqlComands comSQL = new SqlComands();
         Form1 F1 = new Form1();
+        int sancion;
         private void F2Usuer_Load(object sender, EventArgs e)
         {
             comSQL.funTableCars(F1.server, F1.database, dataGridCars);
+            sancion = comSQL.funSancion(F1.server, F1.database, Convert.ToInt32(lblUserID.Text));
+            if (sancion == 1)
+            {
+                btnAcceptRent.Enabled = false;
+                lblInformation.Text = "You cannot rent a new car, you have a penalty, pay the penalty first to rent a new car.";
+                btnPayPenality.Enabled = true;
+            }
+            else 
+            {
+                btnAcceptRent.Enabled = true;
+                lblInformation.Text = "All ok.";
+                btnPayPenality.Enabled = false;
+            }
             radiBtnRent.Checked = true;
             dataGridCars.Columns["Disponible"].Visible = false;
             dataGridCars.Columns["N_Puertas"].Visible = false;
             dataGridCars.Columns["Asientos"].Visible = false;
             dataGridCars.Columns["Precio_Dia"].Visible = false;
             dataGridCars.Columns["Imagen"].Visible = false;
+            button3.Visible = false;
 
         }
 
@@ -65,7 +80,7 @@ namespace ProyectoFinalH2
         {
             lblNDoors.Text = dataGridCars.SelectedCells[5].Value.ToString();
             lblPlaces.Text = dataGridCars.SelectedCells[6].Value.ToString();
-            lblPrice.Text = dataGridCars.SelectedCells[7].Value.ToString();
+            lblPrice.Text = $"$ {dataGridCars.SelectedCells[7].Value.ToString()}";
         }
 
         private void btnAcceptRent_Click(object sender, EventArgs e)
@@ -97,6 +112,12 @@ namespace ProyectoFinalH2
             OpenFileDialog fo = new OpenFileDialog();
             DialogResult rs = fo.ShowDialog();
             if (rs == DialogResult.OK) { pictureBox1.Image = Image.FromFile(fo.FileName); }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You have paid the penalty.", "Ok.");
+            comSQL.funPaySancion(F1.server, F1.database, Convert.ToInt32(lblUserID.Text));
         }
     }
 } 

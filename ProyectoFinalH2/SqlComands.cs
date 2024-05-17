@@ -122,6 +122,33 @@ namespace ProyectoFinalH2
                 sqlCarsDispo.ExecuteNonQuery();
                 con.Close();
             }
-        }   
+        }
+
+        public int funSancion(string server, string database, int idClien)
+        {
+            using (SqlConnection con = new SqlConnection($"server={server}; database={database}; integrated security=true;"))
+            {
+                con.Open();
+                string Query = $"select Sancion from tClientes where ID = '{idClien}'";
+                SqlCommand sqlSancion = new SqlCommand(Query, con);
+                object result = sqlSancion.ExecuteScalar();
+                int bitReturn = Convert.ToInt32(result);
+                con.Close();
+                return bitReturn;
+            }
+        }
+
+        public void funPaySancion(string server, string database, int idClien)
+        {
+            using (SqlConnection con = new SqlConnection($"server={server}; database={database}; integrated security=true;"))
+            {
+                con.Open();
+                string Query = $"update tClientes set Sancion = 0 where ID = '{idClien}'";
+                SqlCommand sqlSancion = new SqlCommand(Query, con);
+                sqlSancion.ExecuteNonQuery();
+                con.Close();
+
+            }
+        }
     }
 }
