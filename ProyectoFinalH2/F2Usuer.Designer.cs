@@ -49,7 +49,6 @@
             this.radiBtnRent = new System.Windows.Forms.RadioButton();
             this.radiBtnReserver = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblNDoors = new System.Windows.Forms.Label();
             this.lblPlaces = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridCars = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -290,16 +290,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cars list:";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(723, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 39);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
@@ -367,6 +357,16 @@
             this.dataGridCars.Size = new System.Drawing.Size(548, 294);
             this.dataGridCars.TabIndex = 0;
             this.dataGridCars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCars_CellClick);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(723, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 39);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
