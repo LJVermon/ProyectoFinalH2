@@ -21,6 +21,7 @@ namespace ProyectoFinalH2
         public string server = "DESKTOP-B9S4NRM";
         public string database = "RentalCars";
         string UsertTest = "tClientes";
+        public string tableAdmin = "tAdmin";
         
         SqlComands conexionBa = new SqlComands();
         SqlComands sqlComands2 = new SqlComands();
@@ -50,7 +51,9 @@ namespace ProyectoFinalH2
         private void btnAccept_Click(object sender, EventArgs e)
         {
             int Bandera = sqlComands2.funLoginTest(server, database, UsertTest, txtName.Text, txtPassw.Text);
+            int Bandera2 = sqlComands2.funLoginTest(server, database, tableAdmin, txtName.Text, txtPassw.Text);
             F2Usuer F2 = new F2Usuer();
+            F3Admin F3 = new F3Admin();
             AddOwnedForm(F2);
             F2.lblUserID.Text = $"{Convert.ToString(sqlComands2.funReturIDClient(server, database, UsertTest, txtName.Text, txtPassw.Text))}";
             if (Bandera == 1)
@@ -59,7 +62,13 @@ namespace ProyectoFinalH2
                 txtPassw.Clear();
                 F2.Show();
             }
-            else 
+            else if (Bandera2 == 1)
+            {
+                txtName.Clear();
+                txtPassw.Clear();
+                F3.Show();
+            }
+            else
             {
                 MessageBox.Show("Incorrect client or password, try again.", "Ups!");
             }

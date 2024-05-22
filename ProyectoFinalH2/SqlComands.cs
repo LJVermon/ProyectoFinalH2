@@ -22,19 +22,19 @@ namespace ProyectoFinalH2
             }
         }
 
-        public int funLoginTest(string server, string database, string tClientes, string entradaNombe, string entradaContra)
+        public int funLoginTest(string server, string database, string tPerson, string entradaNombe, string entradaContra)
         {
             int Bandera = 0;
             using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
             {
                 con.Open();
-                string Query2 = $"select * from {tClientes} where Nombre = '{entradaNombe}'";
+                string Query2 = $"select * from {tPerson} where Nombre = '{entradaNombe}'";
                 SqlCommand Coman2 = new SqlCommand(Query2, con);
                 SqlDataReader RC2 = Coman2.ExecuteReader();
                 if (RC2.Read())
                 {
                     RC2.Close();
-                    string Query3 = $"select * from {tClientes} where Contraseña = '{entradaContra}' and Nombre = '{entradaNombe}'";
+                    string Query3 = $"select * from {tPerson} where Contraseña = '{entradaContra}' and Nombre = '{entradaNombe}'";
                     SqlCommand Coman3 = new SqlCommand(Query3, con);
                     SqlDataReader RC3 = Coman3.ExecuteReader();
                     if (RC3.Read())
@@ -49,6 +49,8 @@ namespace ProyectoFinalH2
                 return Bandera;
             }
         }
+
+
 
         public void funSingUp(string server, string database, string tClientes, string entradaNombe, string entradaContra)
         {
@@ -71,6 +73,20 @@ namespace ProyectoFinalH2
                 con.Open();
                 string QuerYCars = "select	* from tCars where Disponible = 1";
                 SqlDataAdapter tCars = new SqlDataAdapter(QuerYCars,con);
+                DataTable dt = new DataTable();
+                tCars.Fill(dt);
+                table.DataSource = dt;
+                con.Close();
+            }
+        }
+
+        public void funTableCarsHistory(string server, string database, string Placa, DataGridView table)
+        {
+            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            {
+                con.Open();
+                string QuerYCars = $"select	* from tArriendoReservas where ID_Carro = '{Placa}'";
+                SqlDataAdapter tCars = new SqlDataAdapter(QuerYCars, con);
                 DataTable dt = new DataTable();
                 tCars.Fill(dt);
                 table.DataSource = dt;
@@ -150,5 +166,72 @@ namespace ProyectoFinalH2
 
             }
         }
+
+        public void funTableCarsAll(string server, string database, DataGridView table)
+        {
+            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            {
+                con.Open();
+                string QuerYCars = "select	* from tCars";
+                SqlDataAdapter tCars = new SqlDataAdapter(QuerYCars, con);
+                DataTable dt = new DataTable();
+                tCars.Fill(dt);
+                table.DataSource = dt;
+                con.Close();
+            }
+        }
+
+        public void funTableClientes(string server, string database, DataGridView table)
+        {
+            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            {
+                con.Open();
+                string QuerYCars = "select	* from tClientes";
+                SqlDataAdapter tCars = new SqlDataAdapter(QuerYCars, con);
+                DataTable dt = new DataTable();
+                tCars.Fill(dt);
+                table.DataSource = dt;
+                con.Close();
+            }
+        }
+
+        public void funEditPenality(string server, string database, int penality, int IDClient)
+        {
+            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            {
+                con.Open();
+                string Query = $"update tClientes set Sancion = {penality} where ID = {IDClient}";
+                SqlCommand sqlSancion = new SqlCommand(Query, con);
+                sqlSancion.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        public void funDeleteCar(string server, string database, string Placa)
+        {
+            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            {
+                con.Open();
+                string Query = $"delete from tCars where Placa = '{Placa}'";
+                SqlCommand sqlSancion = new SqlCommand(Query, con);
+                sqlSancion.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        public int funAddCar(string server, string database, string Placa, string Modelo,string Tipo, int Dispo, string Color, int NPuertas, int Asientos, int Precio)
+        {
+            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            {
+                con.Open();
+                string Query = $"insert into tCars values('{Placa}','{Modelo}','{Tipo}',{Dispo},'{Color}',{NPuertas},{Asientos},{Precio},null)";
+                SqlCommand sqlSancion = new SqlCommand(Query, con);
+                int Eje = sqlSancion.ExecuteNonQuery();
+                con.Close();
+                return Eje;
+            }
+        }
+
+
     }
 }
