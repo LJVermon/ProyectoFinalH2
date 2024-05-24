@@ -219,16 +219,30 @@ namespace ProyectoFinalH2
             }
         }
 
-        public int funAddCar(string server, string database, string Placa, string Modelo,string Tipo, int Dispo, string Color, int NPuertas, int Asientos, int Precio)
+        public bool funAddCar(string server, string database, string Placa, string Modelo,string Tipo, int Dispo, string Color, int NPuertas, int Asientos, int Precio)
         {
             using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
             {
                 con.Open();
-                string Query = $"insert into tCars values('{Placa}','{Modelo}','{Tipo}',{Dispo},'{Color}',{NPuertas},{Asientos},{Precio},null)";
-                SqlCommand sqlSancion = new SqlCommand(Query, con);
-                int Eje = sqlSancion.ExecuteNonQuery();
-                con.Close();
-                return Eje;
+                string Qur = $"select * from tCars where Placa = '{Placa}'";
+                SqlCommand sqlS = new SqlCommand(Qur, con);
+                SqlDataReader RC2 = sqlS.ExecuteReader();
+                if (RC2.Read()) { RC2.Close(); con.Close(); return false; }
+                else 
+                {
+                    RC2.Close();
+                    string Query = $"insert into tCars values('{Placa}','{Modelo}','{Tipo}',{Dispo},'{Color}',{NPuertas},{Asientos},{Precio},null)";
+                    SqlCommand sqlSancion = new SqlCommand(Query, con);
+                    SqlDataReader RC3 = sqlSancion.ExecuteReader();
+                    if (RC3.Read())
+                    {
+                        RC3.Close(); con.Close(); return false;
+                    }
+                    else 
+                    {
+                        RC3.Close(); con.Close(); return true;
+                    }
+                }
             }
         }
 

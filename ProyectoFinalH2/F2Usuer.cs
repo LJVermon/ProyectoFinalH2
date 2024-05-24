@@ -41,7 +41,7 @@ namespace ProyectoFinalH2
             dataGridCars.Columns["Asientos"].Visible = false;
             dataGridCars.Columns["Precio_Dia"].Visible = false;
             dataGridCars.Columns["Imagen"].Visible = false;
-            button3.Visible = false;
+
 
         }
 
@@ -105,13 +105,6 @@ namespace ProyectoFinalH2
                 MessageBox.Show($"Has {Mode} el vehiculo con placa {Placa} desde {fechaInicio} hasta el {fechaFin} por un valor de ${lblPrice.Text} por dia.","Felicidades") ;
                 comSQL.funTableCars(F1.server, F1.database, dataGridCars);
             }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog fo = new OpenFileDialog();
-            DialogResult rs = fo.ShowDialog();
-            if (rs == DialogResult.OK) { pictureBox1.Image = Image.FromFile(fo.FileName); }
         }
 
         private void button1_Click(object sender, EventArgs e)

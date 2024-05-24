@@ -24,7 +24,8 @@ namespace ProyectoFinalH2
         {
             SQLCmd.funTableCarsAll(F1.server, F1.database, dataGridCars);
             SQLCmd.funTableClientes(F1.server, F1.database, dataGridViewCliente);
-            
+            dataGridCars.Columns["Imagen"].Visible = false;
+
         }
 
         private void txtPlacaCar_TextChanged(object sender, EventArgs e)
@@ -85,15 +86,20 @@ namespace ProyectoFinalH2
                 if (txtDispo.Text == "True") { Dispo = 1; }
                 else if (txtDispo.Text == "False") { Dispo = 0; }
                 else { Dispo = 0; }
-                int eje = SQLCmd.funAddCar(F1.server, F1.database, txtPlaca.Text, txtModelo.Text, txtTipo.Text, Dispo, txtColor.Text, Convert.ToInt32(txtPuertas.Text), Convert.ToInt32(txtAsiento.Text), Convert.ToInt32(txtPrecio.Text));
-                if (eje > 0) { MessageBox.Show("New cart successfully added", "Ok."); }
+                bool eje = SQLCmd.funAddCar(F1.server, F1.database, txtPlaca.Text, txtModelo.Text, txtTipo.Text, Dispo, txtColor.Text, Convert.ToInt32(txtPuertas.Text), Convert.ToInt32(txtAsiento.Text), Convert.ToInt32(txtPrecio.Text));
+                if (eje == true) { MessageBox.Show("New cart successfully added", "Ok."); }
+                else { MessageBox.Show("Car is already in the database", "Ups!."); }
                 SQLCmd.funTableCarsAll(F1.server, F1.database, dataGridCars);
             }
             else { MessageBox.Show("All required fields","Ey!"); }
 
+        }
 
-           
-
+        private void btnUpImagen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fo = new OpenFileDialog();
+            DialogResult rs = fo.ShowDialog();
+            if (rs == DialogResult.OK) { picBoxCar.Image = Image.FromFile(fo.FileName); }
         }
     }
 }
