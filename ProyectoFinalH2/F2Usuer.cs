@@ -83,6 +83,7 @@ namespace ProyectoFinalH2
             lblPrice.Text = $"$ {dataGridCars.SelectedCells[7].Value.ToString()}";
         }
 
+
         private void btnAcceptRent_Click(object sender, EventArgs e)
         {
             if(dateTStar.Value > dateTEnd.Value)

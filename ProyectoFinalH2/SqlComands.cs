@@ -94,6 +94,20 @@ namespace ProyectoFinalH2
             }
         }
 
+        public void funTableCarsHistory2(string server, string database, int ID, DataGridView table)
+        {
+            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            {
+                con.Open();
+                string QuerYCars = $"select	* from tArriendoReservas where ID_Cliente = {ID}";
+                SqlDataAdapter tCars = new SqlDataAdapter(QuerYCars, con);
+                DataTable dt = new DataTable();
+                tCars.Fill(dt);
+                table.DataSource = dt;
+                con.Close();
+            }
+        }
+
         public int funReturIDClient(string server, string database, string tClientes, string entradaNombe, string entradaContra)
         {
             int IDClient;
@@ -243,6 +257,18 @@ namespace ProyectoFinalH2
                         RC3.Close(); con.Close(); return true;
                     }
                 }
+            }
+        }
+
+        public void funEditCar(string server, string database, string Placa, string Modelo, string Tipo, int Dispo, string Color, int NPuertas, int Asientos, int Precio)
+        {
+            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            {
+                con.Open();
+                string Qur = $"update tCars set Modelo = '{Modelo}', Tipo = '{Tipo}', Disponible = {Dispo}, Color = '{Color}', N_Puertas = {NPuertas}, Asientos = {Asientos}, Precio_Dia = {Precio} where  Placa = '{Placa}'";
+                SqlCommand EditCar = new SqlCommand(Qur, con);
+                EditCar.ExecuteNonQuery();
+                con.Close();
             }
         }
 

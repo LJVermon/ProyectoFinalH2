@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F3Admin));
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.picBoxCar = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnUpImagen = new System.Windows.Forms.Button();
             this.txtDispo = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -51,6 +54,9 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridCars = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtIdClient = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.dataGridViewArrReser = new System.Windows.Forms.DataGridView();
             this.txtPlacaCar = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -62,16 +68,14 @@
             this.dataGridViewCliente = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnUpImagen = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.picBoxCar = new System.Windows.Forms.PictureBox();
+            this.btbGo = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCars)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArrReser)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox5
@@ -106,6 +110,38 @@
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Car list:";
+            // 
+            // picBoxCar
+            // 
+            this.picBoxCar.Image = ((System.Drawing.Image)(resources.GetObject("picBoxCar.Image")));
+            this.picBoxCar.Location = new System.Drawing.Point(1046, 209);
+            this.picBoxCar.Name = "picBoxCar";
+            this.picBoxCar.Size = new System.Drawing.Size(189, 115);
+            this.picBoxCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxCar.TabIndex = 51;
+            this.picBoxCar.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1105, 183);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 19);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "Imagen:";
+            // 
+            // btnUpImagen
+            // 
+            this.btnUpImagen.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnUpImagen.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUpImagen.Location = new System.Drawing.Point(1097, 330);
+            this.btnUpImagen.Name = "btnUpImagen";
+            this.btnUpImagen.Size = new System.Drawing.Size(87, 31);
+            this.btnUpImagen.TabIndex = 49;
+            this.btnUpImagen.Text = "Upload";
+            this.btnUpImagen.UseVisualStyleBackColor = false;
+            this.btnUpImagen.Click += new System.EventHandler(this.btnUpImagen_Click);
             // 
             // txtDispo
             // 
@@ -256,6 +292,7 @@
             this.btnEdit.TabIndex = 30;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label4
             // 
@@ -292,6 +329,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btbGo);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.txtIdClient);
+            this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.dataGridViewArrReser);
             this.groupBox2.Controls.Add(this.txtPlacaCar);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F);
@@ -301,6 +342,33 @@
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lease history";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(6, 93);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(85, 19);
+            this.label13.TabIndex = 54;
+            this.label13.Text = "ID cliente:";
+            // 
+            // txtIdClient
+            // 
+            this.txtIdClient.Location = new System.Drawing.Point(6, 115);
+            this.txtIdClient.Name = "txtIdClient";
+            this.txtIdClient.Size = new System.Drawing.Size(100, 26);
+            this.txtIdClient.TabIndex = 53;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 29);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 19);
+            this.label12.TabIndex = 52;
+            this.label12.Text = "Placa:";
             // 
             // dataGridViewArrReser
             // 
@@ -314,11 +382,10 @@
             // 
             // txtPlacaCar
             // 
-            this.txtPlacaCar.Location = new System.Drawing.Point(6, 105);
+            this.txtPlacaCar.Location = new System.Drawing.Point(6, 51);
             this.txtPlacaCar.Name = "txtPlacaCar";
             this.txtPlacaCar.Size = new System.Drawing.Size(100, 26);
             this.txtPlacaCar.TabIndex = 0;
-            this.txtPlacaCar.TextChanged += new System.EventHandler(this.txtPlacaCar_TextChanged);
             // 
             // groupBox1
             // 
@@ -421,37 +488,17 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Hello ADMIN.";
             // 
-            // btnUpImagen
+            // btbGo
             // 
-            this.btnUpImagen.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnUpImagen.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btnUpImagen.Location = new System.Drawing.Point(1097, 330);
-            this.btnUpImagen.Name = "btnUpImagen";
-            this.btnUpImagen.Size = new System.Drawing.Size(87, 31);
-            this.btnUpImagen.TabIndex = 49;
-            this.btnUpImagen.Text = "Upload";
-            this.btnUpImagen.UseVisualStyleBackColor = false;
-            this.btnUpImagen.Click += new System.EventHandler(this.btnUpImagen_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1105, 183);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 19);
-            this.label11.TabIndex = 50;
-            this.label11.Text = "Imagen:";
-            // 
-            // picBoxCar
-            // 
-            this.picBoxCar.Image = ((System.Drawing.Image)(resources.GetObject("picBoxCar.Image")));
-            this.picBoxCar.Location = new System.Drawing.Point(1046, 209);
-            this.picBoxCar.Name = "picBoxCar";
-            this.picBoxCar.Size = new System.Drawing.Size(189, 115);
-            this.picBoxCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxCar.TabIndex = 51;
-            this.picBoxCar.TabStop = false;
+            this.btbGo.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btbGo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
+            this.btbGo.Location = new System.Drawing.Point(10, 156);
+            this.btbGo.Name = "btbGo";
+            this.btbGo.Size = new System.Drawing.Size(87, 31);
+            this.btbGo.TabIndex = 52;
+            this.btbGo.Text = "Go";
+            this.btbGo.UseVisualStyleBackColor = false;
+            this.btbGo.Click += new System.EventHandler(this.btbGo_Click);
             // 
             // F3Admin
             // 
@@ -468,6 +515,7 @@
             this.Load += new System.EventHandler(this.F3Admin_Load);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxCar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCars)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -475,7 +523,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxCar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,5 +565,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnUpImagen;
         private System.Windows.Forms.PictureBox picBoxCar;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtIdClient;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btbGo;
     }
 }

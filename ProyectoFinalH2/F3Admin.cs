@@ -25,12 +25,8 @@ namespace ProyectoFinalH2
             SQLCmd.funTableCarsAll(F1.server, F1.database, dataGridCars);
             SQLCmd.funTableClientes(F1.server, F1.database, dataGridViewCliente);
             dataGridCars.Columns["Imagen"].Visible = false;
+            txtPlacaCar.Enabled = false;
 
-        }
-
-        private void txtPlacaCar_TextChanged(object sender, EventArgs e)
-        {
-            SQLCmd.funTableCarsHistory(F1.server, F1.database, txtPlacaCar.Text, dataGridViewArrReser);
         }
 
         private void dataGridCars_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -44,13 +40,14 @@ namespace ProyectoFinalH2
             txtPuertas.Text = dataGridCars.SelectedCells[5].Value.ToString();
             txtAsiento.Text = dataGridCars.SelectedCells[6].Value.ToString();
             txtPrecio.Text = dataGridCars.SelectedCells[7].Value.ToString();
+
+            txtIdClient.Clear();
+            SQLCmd.funTableCarsHistory(F1.server, F1.database, txtPlacaCar.Text, dataGridViewArrReser);
         }
 
         private void dataGridViewCliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             lblIDClient.Text = dataGridViewCliente.SelectedCells[0].Value.ToString();
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,6 +77,8 @@ namespace ProyectoFinalH2
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            picBoxCar.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             if (txtPlaca.Text != "" && txtModelo.Text != "" && txtTipo.Text != "" && txtDispo.Text != "" && txtColor.Text != "" && txtPuertas.Text != "" && txtAsiento.Text != "" && txtPrecio.Text != "")
             {
                 int Dispo;
@@ -100,6 +99,28 @@ namespace ProyectoFinalH2
             OpenFileDialog fo = new OpenFileDialog();
             DialogResult rs = fo.ShowDialog();
             if (rs == DialogResult.OK) { picBoxCar.Image = Image.FromFile(fo.FileName); }
+        }
+
+
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int Dispo;
+            if (txtDispo.Text == "True") { Dispo = 1; }
+            else if (txtDispo.Text == "False") { Dispo = 0; }
+            else { Dispo = 0; }
+            SQLCmd.funEditCar(F1.server, F1.database, txtPlaca.Text, txtModelo.Text, txtTipo.Text, Dispo, txtColor.Text, Convert.ToInt32(txtPuertas.Text), Convert.ToInt32(txtAsiento.Text), Convert.ToInt32(txtPrecio.Text));
+            SQLCmd.funTableCarsAll(F1.server, F1.database, dataGridCars);
+        }
+
+        private void btbGo_Click(object sender, EventArgs e)
+        {
+            if(txtIdClient.Text != "") 
+            {
+                txtPlacaCar.Clear();
+                SQLCmd.funTableCarsHistory2(F1.server, F1.database, Convert.ToInt32(txtIdClient.Text), dataGridViewArrReser);
+
+            }
         }
     }
 }
