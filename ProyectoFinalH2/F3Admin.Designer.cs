@@ -54,6 +54,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridCars = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btbGo = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txtIdClient = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -68,7 +69,6 @@
             this.dataGridViewCliente = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btbGo = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCars)).BeginInit();
@@ -343,6 +343,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lease history";
             // 
+            // btbGo
+            // 
+            this.btbGo.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btbGo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
+            this.btbGo.Location = new System.Drawing.Point(10, 156);
+            this.btbGo.Name = "btbGo";
+            this.btbGo.Size = new System.Drawing.Size(87, 31);
+            this.btbGo.TabIndex = 52;
+            this.btbGo.Text = "Go";
+            this.btbGo.UseVisualStyleBackColor = false;
+            this.btbGo.Click += new System.EventHandler(this.btbGo_Click);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -487,18 +499,6 @@
             this.label1.Size = new System.Drawing.Size(106, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Hello ADMIN.";
-            // 
-            // btbGo
-            // 
-            this.btbGo.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btbGo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
-            this.btbGo.Location = new System.Drawing.Point(10, 156);
-            this.btbGo.Name = "btbGo";
-            this.btbGo.Size = new System.Drawing.Size(87, 31);
-            this.btbGo.TabIndex = 52;
-            this.btbGo.Text = "Go";
-            this.btbGo.UseVisualStyleBackColor = false;
-            this.btbGo.Click += new System.EventHandler(this.btbGo_Click);
             // 
             // F3Admin
             // 

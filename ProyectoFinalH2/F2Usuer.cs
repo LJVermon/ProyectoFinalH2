@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,6 +83,47 @@ namespace ProyectoFinalH2
             lblNDoors.Text = dataGridCars.SelectedCells[5].Value.ToString();
             lblPlaces.Text = dataGridCars.SelectedCells[6].Value.ToString();
             lblPrice.Text = $"$ {dataGridCars.SelectedCells[7].Value.ToString()}";
+
+            string placa = dataGridCars.SelectedCells[0].Value.ToString();
+
+            Image carImage = GetCarImage(F1.server, F1.database, placa);
+
+            if (carImage != null)
+            {
+                pictureBox1.Image = carImage;
+            }
+            else
+            {
+                pictureBox1.Image = null;
+            }
+        }
+
+        private Image GetCarImage(string server, string database, string placa)
+        {
+            using (SqlConnection con = new SqlConnection($"server={server};database={database};integrated security=true;"))
+            {
+                con.Open();
+
+                string query = "SELECT Imagen FROM tCars WHERE Placa = @Placa";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Placa", placa);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != DBNull.Value)
+                    {
+                        byte[] imageBytes = (byte[])result;
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            return Image.FromStream(ms);
+                        }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
         }
 
 

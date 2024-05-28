@@ -1,3 +1,6 @@
+create database RentalCars
+Use RentalCars
+
 create table tClientes
 (
 	ID int primary key not null,
@@ -39,19 +42,15 @@ INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color, N_Puertas, Asientos, 
 VALUES 
     ('ABC123', 'Toyota Corolla', 'Sedan', 1, 'Rojo', 4, 5, 50, null),
     ('DEF456', 'Honda Civic', 'Sedan', 1, 'Azul', 4, 5, 45, null),
-    ('GHI789', 'Ford Mustang', 'Deportivo', 1, 'Negro', 2, 2, 100, null),
-    ('JKL012', 'Volkswagen Golf', 'Hatchback', 1, 'Blanco', 4, 5, 40, null),
     ('MNO345', 'Chevrolet Camaro', 'Deportivo', 1, 'Amarillo', 2, 2, 120, null),
-    ('PQR678', 'Nissan Sentra', 'Sedan', 1, 'Gris', 4, 5, 48, null),
-    ('STU901', 'BMW Serie 3', 'Sedan', 1, 'Plateado', 4, 5, 80, null),
-    ('VWX234', 'Audi A4', 'Sedan', 1, 'Negro', 4, 5, 85, null),
-    ('YZA567', 'Hyundai Elantra', 'Sedan', 1, 'Gris', 4, 5, 47, null),
-    ('BCD890', 'Kia Forte', 'Sedan', 1, 'Blanco', 4, 5, 46, null),
-    ('EFG123', 'Mazda 3', 'Sedan', 1, 'Rojo', 4, 5, 49, null),
     ('HIJ456', 'Subaru Impreza', 'Hatchback', 1, 'Azul', 4, 5, 42, null),
-    ('KLM789', 'Mercedes-Benz Clase C', 'Sedan', 1, 'Negro', 4, 5, 90, null),
-    ('NOP012', 'Volvo S60', 'Sedan', 1, 'Plateado', 4, 5, 82, null),
-    ('QRS345', 'Lexus IS', 'Sedan', 1, 'Gris Oscuro', 4, 5, 88, null);
+    ('NOP012', 'Volvo S60', 'Sedan', 1, 'Plateado', 4, 5, 82, null);
+ 
 
 
-
+create table tAdmin
+(
+	ID int primary key not null,
+	Nombre varchar(50) not null,
+	Contraseña varchar(50) not null
+)

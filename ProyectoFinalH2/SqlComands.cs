@@ -8,6 +8,8 @@ using System.Data;
 using System.Windows.Forms;
 using System.Security.Policy;
 using System.Net.Sockets;
+using System.Drawing;
+using System.IO;
 
 namespace ProyectoFinalH2
 {
@@ -77,6 +79,34 @@ namespace ProyectoFinalH2
                 tCars.Fill(dt);
                 table.DataSource = dt;
                 con.Close();
+            }
+        }
+
+        private Image GetCarImage(string server, string database, string placa)
+        {
+            using (SqlConnection con = new SqlConnection($"server={server};database={database};integrated security=true;"))
+            {
+                con.Open();
+
+                string query = "SELECT Imagen FROM tCars WHERE Placa = @Placa";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Placa", placa);
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != DBNull.Value)
+                    {
+                        byte[] imageBytes = (byte[])result;
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            return Image.FromStream(ms);
+                        }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
             }
         }
 
@@ -233,44 +263,94 @@ namespace ProyectoFinalH2
             }
         }
 
-        public bool funAddCar(string server, string database, string Placa, string Modelo,string Tipo, int Dispo, string Color, int NPuertas, int Asientos, int Precio)
+        public bool funAddCar(string server, string database, string Placa, string Modelo, string Tipo, int Dispo, string Color, int NPuertas, int Asientos, int Precio, byte[] carImageBytes)
         {
-            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            using (SqlConnection con = new SqlConnection($"server={server};database={database};integrated security=true;"))
             {
                 con.Open();
-                string Qur = $"select * from tCars where Placa = '{Placa}'";
+
+                // Verificar si la placa ya existe
+                string Qur = "SELECT * FROM tCars WHERE Placa = @Placa";
                 SqlCommand sqlS = new SqlCommand(Qur, con);
+                sqlS.Parameters.AddWithValue("@Placa", Placa);
                 SqlDataReader RC2 = sqlS.ExecuteReader();
-                if (RC2.Read()) { RC2.Close(); con.Close(); return false; }
-                else 
+
+                if (RC2.Read())
                 {
                     RC2.Close();
-                    string Query = $"insert into tCars values('{Placa}','{Modelo}','{Tipo}',{Dispo},'{Color}',{NPuertas},{Asientos},{Precio},null)";
-                    SqlCommand sqlSancion = new SqlCommand(Query, con);
-                    SqlDataReader RC3 = sqlSancion.ExecuteReader();
-                    if (RC3.Read())
+                    con.Close();
+                    return false;
+                }
+                else
+                {
+                    RC2.Close();
+
+                    // Comando SQL para insertar los datos en la tabla tCars
+                    string Query = "INSERT INTO tCars (Placa, Modelo, Tipo, Disponible, Color, N_Puertas, Asientos, Precio_Dia, Imagen) " +
+                                   "VALUES (@Placa, @Modelo, @Tipo, @Disponible, @Color, @NPuertas, @Asientos, @Precio, @Imagen)";
+
+                    using (SqlCommand sqlSancion = new SqlCommand(Query, con))
                     {
-                        RC3.Close(); con.Close(); return false;
-                    }
-                    else 
-                    {
-                        RC3.Close(); con.Close(); return true;
+                        // Agregar parámetros con valores
+                        sqlSancion.Parameters.AddWithValue("@Placa", Placa);
+                        sqlSancion.Parameters.AddWithValue("@Modelo", Modelo);
+                        sqlSancion.Parameters.AddWithValue("@Tipo", Tipo);
+                        sqlSancion.Parameters.AddWithValue("@Disponible", Dispo);
+                        sqlSancion.Parameters.AddWithValue("@Color", Color);
+                        sqlSancion.Parameters.AddWithValue("@NPuertas", NPuertas);
+                        sqlSancion.Parameters.AddWithValue("@Asientos", Asientos);
+                        sqlSancion.Parameters.AddWithValue("@Precio", Precio);
+                        sqlSancion.Parameters.AddWithValue("@Imagen", carImageBytes);
+
+                        int rowsAffected = sqlSancion.ExecuteNonQuery();
+                        con.Close();
+
+                        return rowsAffected > 0;
                     }
                 }
             }
         }
 
-        public void funEditCar(string server, string database, string Placa, string Modelo, string Tipo, int Dispo, string Color, int NPuertas, int Asientos, int Precio)
+
+        public void funEditCar(string server, string database, string Placa, string Modelo, string Tipo, int Dispo, string Color, int NPuertas, int Asientos, int Precio, byte[] carImageBytes)
         {
-            using (SqlConnection con = new SqlConnection($"server = {server}; database = {database}; integrated security = true;"))
+            using (SqlConnection con = new SqlConnection($"server={server};database={database};integrated security=true;"))
             {
                 con.Open();
-                string Qur = $"update tCars set Modelo = '{Modelo}', Tipo = '{Tipo}', Disponible = {Dispo}, Color = '{Color}', N_Puertas = {NPuertas}, Asientos = {Asientos}, Precio_Dia = {Precio} where  Placa = '{Placa}'";
-                SqlCommand EditCar = new SqlCommand(Qur, con);
-                EditCar.ExecuteNonQuery();
+
+                string Qur;
+                if (carImageBytes != null)
+                {
+                    Qur = "UPDATE tCars SET Modelo = @Modelo, Tipo = @Tipo, Disponible = @Disponible, Color = @Color, N_Puertas = @NPuertas, Asientos = @Asientos, Precio_Dia = @Precio, Imagen = @Imagen WHERE Placa = @Placa";
+                }
+                else
+                {
+                    Qur = "UPDATE tCars SET Modelo = @Modelo, Tipo = @Tipo, Disponible = @Disponible, Color = @Color, N_Puertas = @NPuertas, Asientos = @Asientos, Precio_Dia = @Precio WHERE Placa = @Placa";
+                }
+
+                using (SqlCommand EditCar = new SqlCommand(Qur, con))
+                {
+                    EditCar.Parameters.AddWithValue("@Placa", Placa);
+                    EditCar.Parameters.AddWithValue("@Modelo", Modelo);
+                    EditCar.Parameters.AddWithValue("@Tipo", Tipo);
+                    EditCar.Parameters.AddWithValue("@Disponible", Dispo);
+                    EditCar.Parameters.AddWithValue("@Color", Color);
+                    EditCar.Parameters.AddWithValue("@NPuertas", NPuertas);
+                    EditCar.Parameters.AddWithValue("@Asientos", Asientos);
+                    EditCar.Parameters.AddWithValue("@Precio", Precio);
+
+                    if (carImageBytes != null)
+                    {
+                        EditCar.Parameters.AddWithValue("@Imagen", carImageBytes);
+                    }
+
+                    EditCar.ExecuteNonQuery();
+                }
+
                 con.Close();
             }
         }
+
 
 
     }
